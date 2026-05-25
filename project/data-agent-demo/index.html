@@ -28,7 +28,7 @@
 <meta property="og:description" content="Data Agent Demo Project 2 Q1(4): Deploy the agent model with a laptop and prepare a website for the demo.  Demo OverviewThis page is the independent demo entry for the Data Agent system. It is separat">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-25T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-25T14:32:39.932Z">
+<meta property="article:modified_time" content="2026-05-25T14:45:18.613Z">
 <meta property="article:author" content="wxy">
 <meta name="twitter:card" content="summary">
 
@@ -129,7 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Agent-Demo"><span class="nav-number">1.</span> <span class="nav-text">Data Agent Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Demo Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-Deployment"><span class="nav-number">1.2.</span> <span class="nav-text">Model and Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Run"><span class="nav-number">1.3.</span> <span class="nav-text">How to Run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Prompts"><span class="nav-number">1.4.</span> <span class="nav-text">Example Prompts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evidence"><span class="nav-number">1.5.</span> <span class="nav-text">Evidence</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Agent-Demo"><span class="nav-number">1.</span> <span class="nav-text">Data Agent Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Demo Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-Deployment"><span class="nav-number">1.2.</span> <span class="nav-text">Model and Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Run"><span class="nav-number">1.3.</span> <span class="nav-text">How to Run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uploading-External-Data"><span class="nav-number">1.4.</span> <span class="nav-text">Uploading External Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Prompts"><span class="nav-number">1.5.</span> <span class="nav-text">Example Prompts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evidence"><span class="nav-number">1.6.</span> <span class="nav-text">Evidence</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,6 +216,10 @@
 <td><code>F:\AssignmentsPre\LLMsoftware\project2\web_demo.py</code></td>
 </tr>
 <tr>
+<td>Test data</td>
+<td><code>F:\AssignmentsPre\LLMsoftware\project2\data\demo_customer_churn.csv</code></td>
+</tr>
+<tr>
 <td>Local demo URL</td>
 <td><code>http://127.0.0.1:8000</code></td>
 </tr>
@@ -230,6 +234,11 @@
 
 <p>For local browser access, open:</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8000</span><br></pre></td></tr></table></figure>
+
+<h2 id="Uploading-External-Data"><a href="#Uploading-External-Data" class="headerlink" title="Uploading External Data"></a>Uploading External Data</h2><p>The demo supports CSV and JSON uploads. After a file is uploaded, the app reads the file locally and sends a compact data summary to the model together with the user question. The summary includes file name, file type, columns or keys, row or item count, and a small preview.</p>
+<p>This keeps the demo lightweight while still letting the agent reason about external data structure.</p>
+<p>Example test file:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F:\AssignmentsPre\LLMsoftware\project2\data\demo_customer_churn.csv</span><br></pre></td></tr></table></figure>
 
 <p>For classroom or LAN demonstration, start the service with:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python web_demo.py <span class="literal">--checkpoint-path</span> .\models\Qwen3.<span class="number">5</span><span class="literal">-0</span>.<span class="number">8</span>B <span class="literal">--server-name</span> <span class="number">0.0</span>.<span class="number">0.0</span> <span class="literal">--server-port</span> <span class="number">8000</span></span><br></pre></td></tr></table></figure>
