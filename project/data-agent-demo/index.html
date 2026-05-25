@@ -28,7 +28,7 @@
 <meta property="og:description" content="Data Agent Demo Project 2 Q1(4): Deploy the agent model with a laptop and prepare a website for the demo.  Demo OverviewThis page is the independent demo entry for the Data Agent system. It is separat">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-25T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-25T14:45:18.613Z">
+<meta property="article:modified_time" content="2026-05-25T15:58:22.514Z">
 <meta property="article:author" content="wxy">
 <meta name="twitter:card" content="summary">
 
@@ -129,7 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Agent-Demo"><span class="nav-number">1.</span> <span class="nav-text">Data Agent Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Demo Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-Deployment"><span class="nav-number">1.2.</span> <span class="nav-text">Model and Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-Run"><span class="nav-number">1.3.</span> <span class="nav-text">How to Run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uploading-External-Data"><span class="nav-number">1.4.</span> <span class="nav-text">Uploading External Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Prompts"><span class="nav-number">1.5.</span> <span class="nav-text">Example Prompts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evidence"><span class="nav-number">1.6.</span> <span class="nav-text">Evidence</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Agent-Demo"><span class="nav-number">1.</span> <span class="nav-text">Data Agent Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Demo Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-Deployment"><span class="nav-number">1.2.</span> <span class="nav-text">Model and Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Online-Demo"><span class="nav-number">1.3.</span> <span class="nav-text">Online Demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Local-Backup"><span class="nav-number">1.4.</span> <span class="nav-text">Local Backup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uploading-External-Data"><span class="nav-number">1.5.</span> <span class="nav-text">Uploading External Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Prompts"><span class="nav-number">1.6.</span> <span class="nav-text">Example Prompts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evidence"><span class="nav-number">1.7.</span> <span class="nav-text">Evidence</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -220,6 +220,10 @@
 <td><code>F:\AssignmentsPre\LLMsoftware\project2\data\demo_customer_churn.csv</code></td>
 </tr>
 <tr>
+<td>Online Space URL</td>
+<td><code>https://wxinyu-wxy-blog-space.hf.space/</code></td>
+</tr>
+<tr>
 <td>Local demo URL</td>
 <td><code>http://127.0.0.1:8000</code></td>
 </tr>
@@ -228,8 +232,16 @@
 <td><code>https://wxyblog.me/project/data-agent-demo/</code></td>
 </tr>
 </tbody></table>
-<p>The assignment allows using the official Qwen3.5-0.8B checkpoint for this demo. The checkpoint is already stored locally, so the demo does not need to download another model.</p>
-<h2 id="How-to-Run"><a href="#How-to-Run" class="headerlink" title="How to Run"></a>How to Run</h2><p>Open a terminal in the project directory and start the Gradio demo:</p>
+<p>The assignment allows using the official Qwen3.5-0.8B checkpoint for this demo. The online version runs on Hugging Face Spaces, while the local script can still be used for offline testing.</p>
+<h2 id="Online-Demo"><a href="#Online-Demo" class="headerlink" title="Online Demo"></a>Online Demo</h2><p>The live Data Agent app is embedded below. If the embedded app is slow to start, open the Space directly:</p>
+<p><a target="_blank" rel="noopener" href="https://wxinyu-wxy-blog-space.hf.space/">Open Data Agent Space</a></p>
+<iframe
+  src="https://wxinyu-wxy-blog-space.hf.space/"
+  style="width: 100%; height: 920px; border: 1px solid #ddd; border-radius: 8px;"
+  allow="clipboard-read; clipboard-write"
+></iframe>
+
+<h2 id="Local-Backup"><a href="#Local-Backup" class="headerlink" title="Local Backup"></a>Local Backup</h2><p>The same demo can also be run locally. Open a terminal in the project directory and start the Gradio app:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python web_demo.py <span class="literal">--checkpoint-path</span> .\models\Qwen3.<span class="number">5</span><span class="literal">-0</span>.<span class="number">8</span>B <span class="literal">--inbrowser</span></span><br></pre></td></tr></table></figure>
 
 <p>For local browser access, open:</p>
