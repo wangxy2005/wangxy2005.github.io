@@ -1,0 +1,28 @@
+{
+  "id": "openclaw-evidence-tracker",
+  "name": "openclaw-evidence-tracker",
+  "displayName": "Scientific Evidence Chain Tracker",
+  "version": "0.1.0",
+  "description": "Parses research PDFs, generates novel ideas via LLM, traces evidence chains, and verifies citations with color-coded verdicts (green/yellow/red)",
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "ragAcApiKey": {
+        "type": "string",
+        "description": "rag.ac API key for semantic literature search (optional, falls back to RAG_AC_API_KEY env var)"
+      }
+    }
+  },
+  "extensionPoints": [
+    {
+      "type": "tool",
+      "path": "./index.ts"
+    }
+  ],
+  "skills": [
+    {
+      "name": "evidence-tracker",
+      "path": "./skills/evidence-tracker"
+    }
+  ]
+}

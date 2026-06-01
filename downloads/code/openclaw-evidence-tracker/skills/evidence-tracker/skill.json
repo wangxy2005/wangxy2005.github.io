@@ -1,0 +1,6 @@
+{
+  "name": "evidence-tracker",
+  "version": "0.1.0",
+  "description": "Scientific Evidence Chain Tracker — analyze research PDFs, generate ideas, verify citations",
+  "tools": ["parse_research_pdf", "search_literature", "run_evidence_chain", "verify_single_claim"]
+}

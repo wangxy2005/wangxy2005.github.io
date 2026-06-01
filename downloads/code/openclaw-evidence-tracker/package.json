@@ -1,0 +1,41 @@
+{
+  "name": "openclaw-evidence-tracker",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Scientific Evidence Chain Tracker for OpenClaw — parses research PDFs, generates ideas via LLM, traces evidence chains, and verifies citations with color-coded verdicts",
+  "license": "MIT",
+  "author": "wxy",
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "evidence",
+    "research",
+    "citation",
+    "pdf",
+    "science"
+  ],
+  "files": [
+    "index.ts",
+    "openclaw.plugin.json",
+    "skills",
+    "README.md"
+  ],
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.47",
+    "pdf-parse": "^1.1.1",
+    "zod": "^4.4.3"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2025.0.0"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}
