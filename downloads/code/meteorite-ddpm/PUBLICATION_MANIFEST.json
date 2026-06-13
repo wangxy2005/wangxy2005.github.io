@@ -1,0 +1,20 @@
+{
+  "included": [
+    "README_meteorite_ddpm.md",
+    "train_meteorite_ddpm.py",
+    "evaluate_fid.py",
+    "256_ddpm_failure_analysis.md",
+    "fid_metrics.json",
+    "training_config.json",
+    "assets/meteorite-ddpm-128-best9.webp",
+    "assets/meteorite-ddpm-256-best4.webp"
+  ],
+  "excluded": [
+    "meteorite_ddpm_output/checkpoints/*.pt",
+    "inception_v3_google-0cc3c7bd.pth",
+    "meteorite/",
+    "generated_pictures/",
+    "__pycache__/"
+  ],
+  "reason": "Keep the GitHub Pages repository lightweight while preserving report, reproducible code, metrics, and representative visual results."
+}

@@ -20,26 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wxyblog.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="Data Agent Demo Project 2 Q1(4): Deploy the agent model with a laptop and prepare a website for the demo.  Demo OverviewThis page is the independent demo entry for the Data Agent system. It is separat">
+    <meta name="description" content="Homework 3 · Deep Generative Model   Meteorite DDPM Workflow   本项目使用纯 PyTorch 实现 DDPM 基线，训练 U-Net 噪声预测网络生成陨石图像，并用 InceptionV3 特征计算 FID 作为生成质量指标。        View on GitHub         概览   流程   指标   结果   复盘">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Data Agent Demo">
-<meta property="og:url" content="https://wxyblog.me/project/data-agent-demo/index.html">
+<meta property="og:title" content="Meteorite DDPM Workflow">
+<meta property="og:url" content="https://wxyblog.me/project/meteorite-ddpm/index.html">
 <meta property="og:site_name" content="WXY&#39;s Blog">
-<meta property="og:description" content="Data Agent Demo Project 2 Q1(4): Deploy the agent model with a laptop and prepare a website for the demo.  Demo OverviewThis page is the independent demo entry for the Data Agent system. It is separat">
+<meta property="og:description" content="Homework 3 · Deep Generative Model   Meteorite DDPM Workflow   本项目使用纯 PyTorch 实现 DDPM 基线，训练 U-Net 噪声预测网络生成陨石图像，并用 InceptionV3 特征计算 FID 作为生成质量指标。        View on GitHub         概览   流程   指标   结果   复盘">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-25T13:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-25T15:58:22.514Z">
+<meta property="og:image" content="https://wxyblog.me/assets/meteorite-ddpm/images/meteorite-ddpm-128-best9.webp">
+<meta property="og:image" content="https://wxyblog.me/assets/meteorite-ddpm/images/meteorite-ddpm-256-best4.webp">
+<meta property="article:published_time" content="2026-05-19T08:58:00.000Z">
+<meta property="article:modified_time" content="2026-06-13T13:42:53.291Z">
 <meta property="article:author" content="wxy">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wxyblog.me/assets/meteorite-ddpm/images/meteorite-ddpm-128-best9.webp">
 
 
-<link rel="canonical" href="https://wxyblog.me/project/data-agent-demo/">
+<link rel="canonical" href="https://wxyblog.me/project/meteorite-ddpm/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://wxyblog.me/project/data-agent-demo/index.html","path":"project/data-agent-demo/index.html","title":"Data Agent Demo"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://wxyblog.me/project/meteorite-ddpm/index.html","path":"project/meteorite-ddpm/index.html","title":"Meteorite DDPM Workflow"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Data Agent Demo | WXY's Blog
+<title>Meteorite DDPM Workflow | WXY's Blog
 </title>
   
 
@@ -129,7 +132,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-Agent-Demo"><span class="nav-number">1.</span> <span class="nav-text">Data Agent Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo-Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Demo Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-Deployment"><span class="nav-number">1.2.</span> <span class="nav-text">Model and Deployment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Online-Demo"><span class="nav-number">1.3.</span> <span class="nav-text">Online Demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Local-Backup"><span class="nav-number">1.4.</span> <span class="nav-text">Local Backup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uploading-External-Data"><span class="nav-number">1.5.</span> <span class="nav-text">Uploading External Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-Prompts"><span class="nav-number">1.6.</span> <span class="nav-text">Example Prompts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evidence"><span class="nav-number">1.7.</span> <span class="nav-text">Evidence</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Meteorite DDPM Workflow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#overview"><span class="nav-number">1.1.</span> <span class="nav-text">项目目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#workflow"><span class="nav-number">1.2.</span> <span class="nav-text">训练与生成流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#metrics"><span class="nav-number">1.3.</span> <span class="nav-text">核心配置与指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#results"><span class="nav-number">1.4.</span> <span class="nav-text">生成结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#limitations"><span class="nav-number">1.5.</span> <span class="nav-text">问题复盘与后续优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#limitations"><span class="nav-number">1.5.1.</span> <span class="nav-text">背景问题被放大</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#limitations"><span class="nav-number">1.5.2.</span> <span class="nav-text">主体占比不足</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#limitations"><span class="nav-number">1.5.3.</span> <span class="nav-text">全局建模偏弱</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,13 +185,13 @@
     
     <div class="post-block" lang="zh-CN"><header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Data Agent Demo
+<h1 class="post-title" itemprop="name headline">Meteorite DDPM Workflow
 </h1>
 
 <div class="post-meta-container">
   <ul class="breadcrumb">
             <li><a href="/project/">PROJECTS</a></li>
-          <li>DATA-AGENT-DEMO</li>
+          <li>METEORITE-DDPM</li>
   </ul>
 </div>
 
@@ -198,80 +201,108 @@
       
       
       <div class="post-body">
-          <h1 id="Data-Agent-Demo"><a href="#Data-Agent-Demo" class="headerlink" title="Data Agent Demo"></a>Data Agent Demo</h1><blockquote>
-<p>Project 2 Q1(4): Deploy the agent model with a laptop and prepare a website for the demo.</p>
-</blockquote>
-<h2 id="Demo-Overview"><a href="#Demo-Overview" class="headerlink" title="Demo Overview"></a>Demo Overview</h2><p>This page is the independent demo entry for the Data Agent system. It is separate from the Survival Analysis project and is used to present the deployment result for Q1(4).</p>
-<p>The live model service runs locally on the laptop with Gradio. The website provides the project description, launch steps, model information, and demo prompts.</p>
-<h2 id="Model-and-Deployment"><a href="#Model-and-Deployment" class="headerlink" title="Model and Deployment"></a>Model and Deployment</h2><table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Model</td>
-<td>Qwen3.5-0.8B</td>
-</tr>
-<tr>
-<td>Checkpoint path</td>
-<td><code>F:\AssignmentsPre\LLMsoftware\project2\models\Qwen3.5-0.8B</code></td>
-</tr>
-<tr>
-<td>Demo script</td>
-<td><code>F:\AssignmentsPre\LLMsoftware\project2\web_demo.py</code></td>
-</tr>
-<tr>
-<td>Test data</td>
-<td><code>F:\AssignmentsPre\LLMsoftware\project2\data\demo_customer_churn.csv</code></td>
-</tr>
-<tr>
-<td>Online Space URL</td>
-<td><code>https://wxinyu-wxy-blog-space.hf.space/</code></td>
-</tr>
-<tr>
-<td>Local demo URL</td>
-<td><code>http://127.0.0.1:8000</code></td>
-</tr>
-<tr>
-<td>Website URL</td>
-<td><code>https://wxyblog.me/project/data-agent-demo/</code></td>
-</tr>
-</tbody></table>
-<p>The assignment allows using the official Qwen3.5-0.8B checkpoint for this demo. The online version runs on Hugging Face Spaces, while the local script can still be used for offline testing.</p>
-<h2 id="Online-Demo"><a href="#Online-Demo" class="headerlink" title="Online Demo"></a>Online Demo</h2><p>The live Data Agent app is embedded below. If the embedded app is slow to start, open the Space directly:</p>
-<p><a target="_blank" rel="noopener" href="https://wxinyu-wxy-blog-space.hf.space/">Open Data Agent Space</a></p>
-<iframe
-  src="https://wxinyu-wxy-blog-space.hf.space/"
-  style="width: 100%; height: 920px; border: 1px solid #ddd; border-radius: 8px;"
-  allow="clipboard-read; clipboard-write"
-></iframe>
+          <section class="page-hero meteorite-report-hero">
+  <p class="eyebrow">Homework 3 · Deep Generative Model</p>
+  <h1>Meteorite DDPM Workflow</h1>
+  <p>本项目使用纯 PyTorch 实现 DDPM 基线，训练 U-Net 噪声预测网络生成陨石图像，并用 InceptionV3 特征计算 FID 作为生成质量指标。</p>
+  <div class="hero-actions">
+    <a class="btn-primary" target="_blank" rel="noopener" href="https://github.com/wangxy2005/wangxy2005.github.io/tree/main/downloads/code/meteorite-ddpm">View on GitHub</a>
+  </div>
+</section>
 
-<h2 id="Local-Backup"><a href="#Local-Backup" class="headerlink" title="Local Backup"></a>Local Backup</h2><p>The same demo can also be run locally. Open a terminal in the project directory and start the Gradio app:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python web_demo.py <span class="literal">--checkpoint-path</span> .\models\Qwen3.<span class="number">5</span><span class="literal">-0</span>.<span class="number">8</span>B <span class="literal">--inbrowser</span></span><br></pre></td></tr></table></figure>
+<nav class="section-nav" aria-label="Meteorite DDPM report sections">
+  <a href="#overview">概览</a>
+  <a href="#workflow">流程</a>
+  <a href="#metrics">指标</a>
+  <a href="#results">结果</a>
+  <a href="#limitations">复盘</a>
+</nav>
 
-<p>For local browser access, open:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8000</span><br></pre></td></tr></table></figure>
+<section id="overview" class="portfolio-section">
+  <p class="section-kicker">Overview</p>
+  <h2>项目目标</h2>
+  <p>项目目标是使用 <code>meteorite/</code> 数据集训练生成模型，使其能够生成白底陨石图像。模型不仅需要生成单个陨石主体，还需要学习不规则轮廓、深色石质纹理、颗粒感和整体拍摄风格。</p>
+  <div class="metric-grid">
+    <div><strong>128 × 128</strong><span>baseline image size</span></div>
+    <div><strong>1200</strong><span>training epochs</span></div>
+    <div><strong>1000</strong><span>generated images</span></div>
+    <div><strong>74.2195</strong><span>FID score</span></div>
+  </div>
+  <p class="github-note">博客页面仅展示公开报告；源码、配置、指标和压缩后的代表性图片统一通过上方 GitHub 入口访问。</p>
+</section>
 
-<h2 id="Uploading-External-Data"><a href="#Uploading-External-Data" class="headerlink" title="Uploading External Data"></a>Uploading External Data</h2><p>The demo supports CSV and JSON uploads. After a file is uploaded, the app reads the file locally and sends a compact data summary to the model together with the user question. The summary includes file name, file type, columns or keys, row or item count, and a small preview.</p>
-<p>This keeps the demo lightweight while still letting the agent reason about external data structure.</p>
-<p>Example test file:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F:\AssignmentsPre\LLMsoftware\project2\data\demo_customer_churn.csv</span><br></pre></td></tr></table></figure>
+<section id="workflow" class="portfolio-section">
+  <p class="section-kicker">Workflow</p>
+  <h2>训练与生成流程</h2>
+  <ol class="timeline-list">
+    <li>对原始陨石图片进行等比例缩放和白底补齐，避免直接 resize 拉伸主体形状。</li>
+    <li>使用 U-Net 作为噪声预测网络训练 DDPM，在随机时间步向真实图像加噪。</li>
+    <li>从随机噪声开始反向采样，并优先使用 EMA 权重生成最终图像。</li>
+    <li>使用 InceptionV3 提取真实图像和生成图像特征，计算 FID。</li>
+    <li>在 128 像素基线后尝试 256 像素版本，并复盘其质量下降原因。</li>
+  </ol>
+  <pre><code>python train_meteorite_ddpm.py train --device cuda --amp
+python train_meteorite_ddpm.py generate --checkpoint meteorite_ddpm_output/checkpoints/latest.pt --generated-dir generated_pictures --num-images 1000 --batch-size 64 --device cuda --clean-generated
+python evaluate_fid.py</code></pre>
+</section>
 
-<p>For classroom or LAN demonstration, start the service with:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python web_demo.py <span class="literal">--checkpoint-path</span> .\models\Qwen3.<span class="number">5</span><span class="literal">-0</span>.<span class="number">8</span>B <span class="literal">--server-name</span> <span class="number">0.0</span>.<span class="number">0.0</span> <span class="literal">--server-port</span> <span class="number">8000</span></span><br></pre></td></tr></table></figure>
+<section id="metrics" class="portfolio-section">
+  <p class="section-kicker">Configuration</p>
+  <h2>核心配置与指标</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Item</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Model</td><td>DDPM + TinyUNet</td></tr>
+        <tr><td>Image size</td><td>128 × 128</td></tr>
+        <tr><td>Batch size</td><td>64</td></tr>
+        <tr><td>Learning rate</td><td>2e-4</td></tr>
+        <tr><td>Timesteps</td><td>1000</td></tr>
+        <tr><td>EMA decay</td><td>0.9999</td></tr>
+        <tr><td>Real image count</td><td>2682</td></tr>
+        <tr><td>Generated image count</td><td>1000</td></tr>
+        <tr><td>FID</td><td>74.21950297875941</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-<h2 id="Example-Prompts"><a href="#Example-Prompts" class="headerlink" title="Example Prompts"></a>Example Prompts</h2><ol>
-<li>I have a CSV file with missing values and duplicated customer rows. Please design a data cleaning pipeline and explain each step.</li>
-<li>Given a table with customer tenure, monthly charges, contract type, and churn label, how should I build a churn prediction model?</li>
-<li>Write a SQL query to calculate the monthly churn rate by contract type, then explain how to interpret the result.</li>
-<li>Design an end-to-end analysis plan for a business dataset, including data validation, feature engineering, model training, and evaluation.</li>
-</ol>
-<h2 id="Evidence"><a href="#Evidence" class="headerlink" title="Evidence"></a>Evidence</h2><p>After starting the local Gradio service, screenshots can be stored in:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source/assets/project2/data-agent-demo/</span><br></pre></td></tr></table></figure>
+<section id="results" class="portfolio-section">
+  <p class="section-kicker">Results</p>
+  <h2>生成结果</h2>
+  <p>128 像素基线模型已经能够学习到白底背景、单主体构图和基础石质纹理。FID 仍然偏高，说明生成结果与真实分布存在差距，但整体流程稳定可复现。</p>
+  <figure class="result-figure">
+    <img src="/assets/meteorite-ddpm/images/meteorite-ddpm-128-best9.webp" alt="128 pixel DDPM generated meteorite samples">
+    <figcaption>128 像素 DDPM 基线中人工挑选的 9 张代表样本。</figcaption>
+  </figure>
+  <p>256 像素实验保留了更多局部纹理，但也放大了背景噪声、主体比例和构图不稳定的问题，因此没有带来整体质量提升。</p>
+  <figure class="result-figure">
+    <img src="/assets/meteorite-ddpm/images/meteorite-ddpm-256-best4.webp" alt="256 pixel DDPM generated meteorite samples">
+    <figcaption>256 像素尝试中相对较好的 4 张样本。</figcaption>
+  </figure>
+</section>
 
-<p>These screenshots can be used in the final report and presentation to show the running Data Agent interface.</p>
+<section id="limitations" class="portfolio-section">
+  <p class="section-kicker">Review</p>
+  <h2>问题复盘与后续优化</h2>
+  <div class="focus-grid">
+    <article>
+      <h3>背景问题被放大</h3>
+      <p>256 像素保留了更多细节，但也让暗背景、灰尘和边缘噪声更容易被模型学习。</p>
+    </article>
+    <article>
+      <h3>主体占比不足</h3>
+      <p>当前预处理只做白底 padding，没有检测并裁剪陨石主体，背景像素在损失中占比过大。</p>
+    </article>
+    <article>
+      <h3>全局建模偏弱</h3>
+      <p>TinyUNet 对 256 像素图像的全局构图控制不足，后续可增加下采样深度或加入 self-attention。</p>
+    </article>
+  </div>
+  <p>后续优化重点应放在主体裁剪、前景加权损失、更深的 U-Net 结构和统一采样策略，而不是单纯增加训练轮数。</p>
+</section>
 
       </div>
       
@@ -280,7 +311,7 @@
     </div>
   <ul class="breadcrumb">
             <li><a href="/project/">PROJECTS</a></li>
-          <li>DATA-AGENT-DEMO</li>
+          <li>METEORITE-DDPM</li>
   </ul>
 
     
