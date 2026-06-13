@@ -1385,7 +1385,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #bac6fc;
+  background: #3b5d65;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3175,7 +3175,12 @@ body {
   padding: 30px 42px;
 }
 .site-author-image {
+  aspect-ratio: 1/1;
+  border-radius: 50% !important;
+  box-sizing: border-box;
   height: 128px;
+  max-width: 128px !important;
+  min-width: 128px;
   object-fit: cover;
   object-position: center;
   width: 128px;
@@ -3192,9 +3197,14 @@ body {
   min-height: auto !important;
 }
 .sidebar-panel {
+  animation: none !important;
   display: block !important;
+  height: auto !important;
   opacity: 1 !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
   position: static !important;
+  transition: none !important;
   transform: none !important;
   visibility: visible !important;
 }
