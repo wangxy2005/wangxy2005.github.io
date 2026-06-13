@@ -1385,7 +1385,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #cb13ff;
+  background: #bac6fc;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2740,7 +2740,10 @@ body {
   height: 4px;
 }
 .main-inner {
-  max-width: 1120px;
+  max-width: 1280px;
+}
+.main {
+  padding-bottom: 48px;
 }
 .post-block,
 .page .post-block {
@@ -2748,10 +2751,18 @@ body {
   border: 1px solid var(--wxy-line);
   border-radius: 8px;
   box-shadow: 0 18px 50px rgba(15,23,42,0.08);
+  padding: 42px 54px;
+}
+.content-wrap {
+  width: calc(100% - 300px);
+}
+.sidebar {
+  width: 272px;
 }
 .post-body {
   font-size: 16px;
   line-height: 1.75;
+  max-width: none;
 }
 .post-body h1,
 .post-body h2,
@@ -2788,7 +2799,7 @@ body {
   background-size: cover;
 }
 .hero-copy,
-.hero-visual,
+.hero-overview,
 .page-hero > * {
   position: relative;
   z-index: 1;
@@ -2852,29 +2863,52 @@ body {
   border-color: var(--wxy-line);
   color: var(--wxy-ink) !important;
 }
-.hero-visual {
+.hero-overview {
   align-self: stretch;
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.22);
   border-radius: 8px;
-  display: grid;
-  grid-template-rows: minmax(180px, 1fr) auto;
-  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 300px;
   overflow: hidden;
-  padding: 10px;
+  padding: 22px;
 }
-.hero-visual img {
-  background: #fff;
-  border-radius: 6px;
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
+.overview-title {
+  color: #b8f1ed;
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 14px;
+  text-transform: uppercase;
 }
-.hero-stats {
+.hero-overview a {
+  align-items: flex-start;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 8px;
+  color: #fff !important;
   display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 10px;
+  gap: 4px 12px;
+  grid-template-columns: 38px minmax(0, 1fr);
+  margin: 0 0 12px;
+  padding: 14px;
+  text-decoration: none !important;
+}
+.hero-overview a span {
+  color: #b8f1ed;
+  font-weight: 800;
+  grid-row: span 2;
+}
+.hero-overview a strong {
+  color: #fff;
+  line-height: 1.25;
+}
+.hero-overview a em {
+  color: rgba(255,255,255,0.74);
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.45;
 }
 .hero-panel {
   background: rgba(255,255,255,0.12);
@@ -2923,9 +2957,12 @@ body {
   color: var(--wxy-accent);
 }
 .portfolio-section {
-  border-top: 1px solid var(--wxy-line);
-  margin: 34px 0 0;
-  padding: 30px 0 0;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid var(--wxy-line);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(15,23,42,0.05);
+  margin: 28px 0 0;
+  padding: 34px 42px;
 }
 .portfolio-section h2 {
   font-size: 28px;
@@ -3135,7 +3172,52 @@ body {
   background: var(--wxy-soft);
   border: 1px solid rgba(15,118,110,0.18);
   border-radius: 8px;
-  padding: 24px;
+  padding: 30px 42px;
+}
+.site-author-image {
+  height: 128px;
+  object-fit: cover;
+  object-position: center;
+  width: 128px;
+}
+.sidebar-inner.sidebar-nav-active {
+  padding-top: 18px;
+}
+.sidebar-nav {
+  display: none !important;
+}
+.sidebar-panel-container {
+  display: flex !important;
+  flex-direction: column;
+  min-height: auto !important;
+}
+.sidebar-panel {
+  display: block !important;
+  opacity: 1 !important;
+  position: static !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+.site-overview-wrap {
+  order: 1;
+}
+.post-toc-wrap {
+  border-top: 1px solid var(--wxy-line);
+  margin-top: 20px;
+  order: 2;
+  padding-top: 20px;
+}
+.post-toc {
+  margin-top: 0;
+}
+.post-toc ol {
+  padding-left: 0;
+}
+.post-toc .nav {
+  margin: 0;
+}
+.post-toc .nav .nav-child {
+  display: block;
 }
 @media (max-width: 900px) {
   .portfolio-hero {
@@ -3153,6 +3235,13 @@ body {
   .project-row {
     align-items: flex-start;
     flex-direction: column;
+  }
+  .post-block,
+  .page .post-block {
+    padding: 32px;
+  }
+  .portfolio-section {
+    padding: 28px;
   }
 }
 @media (max-width: 620px) {
@@ -3174,11 +3263,8 @@ body {
   .metric-grid {
     grid-template-columns: 1fr;
   }
-  .hero-visual {
-    min-height: 280px;
-  }
-  .hero-stats {
-    grid-template-columns: 1fr;
+  .hero-overview {
+    min-height: auto;
   }
   .project-row-main {
     grid-template-columns: 1fr;
@@ -3190,5 +3276,13 @@ body {
   }
   .section-nav {
     position: static;
+  }
+  .post-block,
+  .page .post-block {
+    padding: 24px;
+  }
+  .portfolio-section,
+  .contact-band {
+    padding: 22px;
   }
 }
